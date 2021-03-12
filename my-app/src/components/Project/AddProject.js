@@ -96,13 +96,11 @@ class AddProject extends Component {
                       value={this.state.projectIdentifier}
                       onChange={this.onChange}
                     />
-
                     {errors.projectIdentifier && (
                       <div className= "invalid-feedback">
                       {errors.projectIdentifier}
                       </div>
                     )}
-
                   </div>
                   <div className="form-group">
                     <textarea
@@ -114,13 +112,11 @@ class AddProject extends Component {
                       value={this.state.description}
                       onChange={this.onChange}
                     />
-
                     {errors.description && (
                       <div className= "invalid-feedback">
                       {errors.description}
                       </div>
                     )}
-                    
                   </div>
                   <h6>Start Date</h6>
                   <div className="form-group">
@@ -142,7 +138,6 @@ class AddProject extends Component {
                       onChange={this.onChange}
                     />
                   </div>
-
                   <input
                     type="submit"
                     className="btn btn-primary btn-block mt-4"
