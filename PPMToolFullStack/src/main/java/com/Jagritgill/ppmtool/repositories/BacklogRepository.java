@@ -6,4 +6,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BacklogRepository extends CrudRepository<Backlog, Long> {
+
+    //JPA which allows us custom Quersa
+
+    Backlog findByProjectIdentifier(String Identifier);
+
 }
