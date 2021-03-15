@@ -4,6 +4,8 @@ package com.Jagritgill.ppmtool.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Backlog {
@@ -19,7 +21,10 @@ public class Backlog {
     //this stops the infinite recursion. It brakes the infinite recursion problem
     @JsonIgnore
     private Project project;
+
     //OneToMany project tasks
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "backlog")
+    private List<ProjectTask> projectTaskList = new ArrayList<>();
 
 
     public Backlog() {
@@ -55,5 +60,13 @@ public class Backlog {
 
     public void setProject(Project project) {
         this.project = project;
+    }
+
+    public List<ProjectTask> getProjectTaskList() {
+        return projectTaskList;
+    }
+
+    public void setProjectTaskList(List<ProjectTask> projectTaskList) {
+        this.projectTaskList = projectTaskList;
     }
 }
