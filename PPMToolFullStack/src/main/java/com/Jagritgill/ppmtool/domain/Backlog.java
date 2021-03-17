@@ -17,14 +17,14 @@ public class Backlog {
 
     //OneToOne with project
     @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "project_id", nullable = false)
+    @JoinColumn(name="project_id",nullable = false)
     //this stops the infinite recursion. It brakes the infinite recursion problem
     @JsonIgnore
     private Project project;
 
-    //OneToMany project tasks
+    //OneToMany projecttasks
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "backlog")
-    private List<ProjectTask> projectTaskList = new ArrayList<>();
+    private List<ProjectTask> projectTasks = new ArrayList<>();
 
 
     public Backlog() {
@@ -62,11 +62,11 @@ public class Backlog {
         this.project = project;
     }
 
-    public List<ProjectTask> getProjectTaskList() {
-        return projectTaskList;
+    public List<ProjectTask> getProjectTasks() {
+        return projectTasks;
     }
 
-    public void setProjectTaskList(List<ProjectTask> projectTaskList) {
-        this.projectTaskList = projectTaskList;
+    public void setProjectTasks(List<ProjectTask> projectTasks) {
+        this.projectTasks = projectTasks;
     }
 }

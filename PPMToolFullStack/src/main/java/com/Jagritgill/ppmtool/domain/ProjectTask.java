@@ -23,7 +23,7 @@ public class ProjectTask {
     private Date dueDate;
     //ManyToOne with Backlog
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
-    @JoinColumn(name = "backlog_id", updatable = false, nullable = false)
+    @JoinColumn(name="backlog_id", updatable = false, nullable = false)
     @JsonIgnore
     private Backlog backlog;
 
@@ -43,7 +43,7 @@ public class ProjectTask {
         this.id = id;
     }
 
-    public String getProjectSequence(String s) {
+    public String getProjectSequence() {
         return projectSequence;
     }
 
@@ -133,7 +133,6 @@ public class ProjectTask {
         this.update_At = new Date();
     }
 
-    // for trouble shooting, memory location
     @Override
     public String toString() {
         return "ProjectTask{" +
@@ -144,6 +143,7 @@ public class ProjectTask {
                 ", status='" + status + '\'' +
                 ", priority=" + priority +
                 ", dueDate=" + dueDate +
+                ", backlog=" + backlog +
                 ", projectIdentifier='" + projectIdentifier + '\'' +
                 ", create_At=" + create_At +
                 ", update_At=" + update_At +
